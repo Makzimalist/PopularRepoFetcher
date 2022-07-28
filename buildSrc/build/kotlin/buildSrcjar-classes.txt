@@ -1,0 +1,1 @@
+/Users/max.maruschke/dev/Popular/buildSrc/build/classes/kotlin/main/Libs.class:/Users/max.maruschke/dev/Popular/buildSrc/build/classes/kotlin/main/Versions.class
