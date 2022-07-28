@@ -11,6 +11,7 @@ object Versions {
     const val compose_version = "1.1.1"
     const val compose_view_model_version = "2.4.1"
     const val coroutines_version = "1.6.1"
+    const val coil_version = "2.1.0"
 }
 
 object Libs {
@@ -26,6 +27,8 @@ object Libs {
     const val mockito_kotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin_version}"
     const val arch_components_test = "androidx.arch.core:core-testing:${Versions.arch_components_testing}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide_version}"
+    const val coil ="io.coil-kt:coil-compose:${Versions.coil_version}"
+
     const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
     const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
     const val compose = "androidx.compose.ui:ui:${Versions.compose_version}"

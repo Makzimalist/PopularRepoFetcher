@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     BuildNavigationGraph(navController = navController)
                 }
-                Text(text = "Hello Popular")
             }
         }
     }

@@ -11,19 +11,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val networkModule = module {
 
-    single {
-        OkHttpClient.Builder().build()
-
-    }
-
-    single(named("base_url")) {
-        BuildConfig.BASE_URL
-    }
-
+    single { OkHttpClient.Builder().build() }
+    single(named("base_url")) { BuildConfig.BASE_URL }
     single { Gson() }
-
     single<Converter.Factory> { GsonConverterFactory.create(get()) }
-
     single {
         Retrofit.Builder()
             .baseUrl(get<String>(named("base_url")))
@@ -31,7 +22,5 @@ val networkModule = module {
             .client(get())
             .build()
     }
-    single {
-        get<Retrofit>().create(RepositoriesApi::class.java)
-    }
+    single { get<Retrofit>().create(RepositoriesApi::class.java) }
 }

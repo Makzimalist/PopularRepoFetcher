@@ -52,7 +52,7 @@ dependencies {
     implementation Libs.recycler_view
     implementation Libs.card_view
 
-    implementation Libs.glide
+    implementation Libs.coil
     implementation Libs.arrow_core_data
 
     implementation Libs.compose
