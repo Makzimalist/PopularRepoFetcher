@@ -1,5 +1,6 @@
 package com.github.popular.ui.main.navigation
 
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,12 +20,23 @@ fun BuildNavigationGraph(navController: NavHostController) {
         composable(route = Screen.Search.route) {
             SearchScreen(navController = navController, getViewModel())
         }
-        composable(route = Screen.RepositoryList.route + "/{search}") {
-            it.arguments?.getString("search")?.let { searchTerm ->
-                RepositoryListScreen(
-                    navController = navController,
-                    listViewModel = getViewModel { parametersOf(searchTerm) })
-            }
+
+        composable(route = Screen.RepositoryList.route) {
+            RepositoryListScreen(
+                navController = navController,
+                listViewModel = getViewModel { parametersOf(null, null) })
+        }
+
+        composable(route = Screen.RepositoryList.route + "/{search}/{sort}") {
+            val search = it.arguments?.getString("search")
+            val sorting = it.arguments?.getString("sort")
+
+            if (search == null || sorting == null) return@composable
+
+            RepositoryListScreen(
+                navController = navController,
+                listViewModel = getViewModel { parametersOf(search, sorting) })
+
         }
         composable(route = Screen.RepositoryDetail.route) {
 

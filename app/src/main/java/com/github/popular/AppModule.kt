@@ -10,7 +10,7 @@ import org.koin.dsl.module
 val appModule = module {
 
     viewModel { SearchViewModel() }
-    viewModel { params -> ListViewModel( params[0], get()) }
+    viewModel { params -> ListViewModel( params[0], params[1], get()) }
 
     single { GitHubRepository(get()) }
     single { GetAllRepositoriesUseCase(get()) }}

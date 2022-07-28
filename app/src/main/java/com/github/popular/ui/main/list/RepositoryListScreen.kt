@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -21,14 +23,22 @@ fun RepositoryListScreen(
     navController: NavController,
     listViewModel: ListViewModel,
 ) {
-
     val viewState by listViewModel.viewState.collectAsState()
-    val repositories = listOf(1, 2, 4)
 
     Scaffold(
         scaffoldState = rememberScaffoldState(),
-        topBar = { TopAppBar(title = { Text(text = "Search") }) },
-    ) { contentPadding ->
+        topBar = {
+            TopAppBar(title = { Text(text = listViewModel.title.collectAsState().value) },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = null,
+                        )
+                    }
+                })
+        },
+    ) {
 
         when (val data = viewState) {
             is ViewState.Loading -> Loading()
@@ -59,7 +69,7 @@ fun LoadingError(
 ) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column {
-            Text(text = "Some thing went terribly wrong", style = MaterialTheme.typography.h5)
+            Text(text = "Something went terribly wrong", style = MaterialTheme.typography.h5)
             Text(text = message)
         }
     }

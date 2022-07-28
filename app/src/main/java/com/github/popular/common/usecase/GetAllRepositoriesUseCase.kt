@@ -7,7 +7,7 @@ class GetAllRepositoriesUseCase(
     private val gitHubRepository: GitHubRepository
 ) {
 
-    suspend fun searchAllRepositories(search: String): List<Repository> {
-        return gitHubRepository.searchAllRepositories(search)
+    suspend fun searchAllRepositories(search: String, sort: String): List<Repository> {
+        return gitHubRepository.searchAllRepositories(search, sort)
     }
 }

@@ -10,17 +10,20 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ListViewModel(
-    searchTerm: String,
+    searchTerm: String?,
+    sort: String?,
     getAllRepositoriesUseCase: GetAllRepositoriesUseCase
 ) : ViewModel() {
 
     private val _viewState = MutableStateFlow<ViewState>(value = ViewState.Loading)
     val viewState: StateFlow<ViewState> = _viewState.asStateFlow()
 
+    val title = MutableStateFlow("$searchTerm | $sort")
+
     init {
         viewModelScope.launch {
             try {
-                val repos = getAllRepositoriesUseCase.searchAllRepositories(searchTerm)
+                val repos = getAllRepositoriesUseCase.searchAllRepositories(searchTerm.orEmpty(), sort.orEmpty())
                 _viewState.value = ViewState.Data(repos)
             } catch (e: Exception) {
                 _viewState.value = ViewState.Error(e.message.orEmpty())
