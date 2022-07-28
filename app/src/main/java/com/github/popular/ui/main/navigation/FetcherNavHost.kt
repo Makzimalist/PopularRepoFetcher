@@ -1,6 +1,5 @@
 package com.github.popular.ui.main.navigation
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
