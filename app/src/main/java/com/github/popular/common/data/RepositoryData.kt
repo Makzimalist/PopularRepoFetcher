@@ -1,5 +1,7 @@
 package com.github.popular.common.data
 
+import java.util.*
+
 
 data class Repository(
     val id: String,
@@ -9,7 +11,8 @@ data class Repository(
     val starsCount: Int,
     val forksCount: Int,
     val openIssuesCount: Int,
-    val owner: RepositoryOwner
+    val owner: RepositoryOwner,
+    val updatedAt: Date
 ) {
     data class RepositoryOwner(
         val loginName: String,

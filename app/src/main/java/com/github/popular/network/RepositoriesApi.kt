@@ -3,6 +3,7 @@ package com.github.popular.network
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.*
 
 interface RepositoriesApi {
 
@@ -33,7 +34,9 @@ data class PopularRepositoriesResponse(
         @SerializedName("forks") val forksCount: Int,
         @SerializedName("open_issues") val openIssuesCount: Int,
         @SerializedName("owner")
-        val owner: ApiRepositoryOwner
+        val owner: ApiRepositoryOwner,
+        @SerializedName("updated_at")
+        val updatedAt: Date
     ) {
         data class ApiRepositoryOwner(
             @SerializedName("login") val loginName: String,

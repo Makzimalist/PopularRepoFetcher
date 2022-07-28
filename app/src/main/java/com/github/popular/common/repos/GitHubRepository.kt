@@ -29,6 +29,7 @@ private fun PopularRepositoriesResponse.ApiRepository.toDomain(): Repository {
         forksCount = this.forksCount,
         openIssuesCount = this.openIssuesCount,
         owner = this.owner.toDomain(),
+        updatedAt = updatedAt
     )
 }
 
