@@ -1,9 +1,6 @@
 package com.github.popular.ui.main.list
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
@@ -67,9 +64,10 @@ fun Loading() {
 fun LoadingError(
     message: String
 ) {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(Modifier.fillMaxSize().padding(24.dp), contentAlignment = Alignment.Center) {
         Column {
             Text(text = "Something went terribly wrong", style = MaterialTheme.typography.h5)
+            Text(text = "Please enter a valid search string, or check your internet connection.", style = MaterialTheme.typography.body1)
             Text(text = message)
         }
     }

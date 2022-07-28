@@ -18,7 +18,7 @@ class ListViewModel(
     private val _viewState = MutableStateFlow<ViewState>(value = ViewState.Loading)
     val viewState: StateFlow<ViewState> = _viewState.asStateFlow()
 
-    val title = MutableStateFlow("$searchTerm | $sort")
+    val title = MutableStateFlow(searchTerm?.let { "$it | $sort" } ?: " ¯\\_(ツ)_/¯")
 
     init {
         viewModelScope.launch {
@@ -30,11 +30,10 @@ class ListViewModel(
             }
         }
     }
-
 }
 
 sealed class ViewState {
     object Loading : ViewState()
-    data class Data(val repositories: List<Repository>) : ViewState() //pass repoData here
+    data class Data(val repositories: List<Repository>) : ViewState()
     data class Error(val message: String) : ViewState()
 }
