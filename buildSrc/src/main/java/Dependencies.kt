@@ -15,6 +15,8 @@ object Versions {
 
 object Libs {
     const val koin = "io.insert-koin:koin-android:${Versions.koin_version}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koin_version}"
+    const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin_version}"
     const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.retrofit2_version}"
     const val retrofit2_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit2_version}"
     const val arrow_core_data = "io.arrow-kt:arrow-core-data:${Versions.arrow_version}"

@@ -1,18 +1,27 @@
 package com.github.popular
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import com.github.popular.theme.PopularTheme
+import com.github.popular.ui.main.navigation.BuildNavigationGraph
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setContent {
             PopularTheme {
+                Box(modifier = Modifier.fillMaxSize()) {
+                    val navController = rememberNavController()
+                    BuildNavigationGraph(navController = navController)
+                }
                 Text(text = "Hello Popular")
             }
         }
