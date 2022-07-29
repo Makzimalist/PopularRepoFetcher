@@ -8,7 +8,6 @@ import java.util.*
 
 interface RepositoriesApi {
 
-    @Headers("Authorization: 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")
     @GET("search/repositories")
     suspend fun getPopularRepos(
         @Query("q") keyWord: String,

@@ -29,6 +29,7 @@ what is Missing:
 
 Notes:
 * for any reason my .gitignore decided to not work... so there are may some weired files, please ignore them :D
+* in the second i wrote the Mail to hang, github send out a mail that they deactivated my token - so i removed my token again -.-" sorry
 * Only wrote tests for viewModel and the Repository (4hrs are really fast :D)
 * I am not happy with the Ui, since I was in a hurry I had to do it quick and dirty
 * The composables are not that well structured nor separated into cleaver files
