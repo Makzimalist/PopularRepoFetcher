@@ -40,7 +40,6 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:2.5.1"
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.1'
 
-    testImplementation 'junit:junit:4.13.2'
 
     implementation Libs.koin
     implementation Libs.koinCore
@@ -49,11 +48,7 @@ dependencies {
     implementation Libs.retrofit2
     implementation Libs.retrofit2_gson_converter
 
-    implementation Libs.recycler_view
-    implementation Libs.card_view
-
     implementation Libs.coil
-    implementation Libs.arrow_core_data
 
     implementation Libs.compose
     implementation Libs.composeFoundation
@@ -64,7 +59,12 @@ dependencies {
     implementation Libs.composeMaterial
     implementation Libs.composeAnimation
 
+    testImplementation Libs.junit
+    testImplementation Libs.core
     testImplementation Libs.arch_components_test
-    testImplementation Libs.mockito_kotlin
+    testImplementation Libs.truth
+    testImplementation Libs.mockk
+    testImplementation Libs.mockkandroid
+    testImplementation Libs.coroutines_test
     androidTestImplementation Libs.composeAndroidTest
 }

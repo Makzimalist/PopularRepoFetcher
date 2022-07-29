@@ -12,6 +12,9 @@ object Versions {
     const val compose_view_model_version = "2.4.1"
     const val coroutines_version = "1.6.1"
     const val coil_version = "2.1.0"
+    const val junit = "4.13.2"
+    const val mockk = "1.12.0"
+    const val androidTest = "1.4.0"
 }
 
 object Libs {
@@ -40,4 +43,12 @@ object Libs {
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose_version}"
     const val composeAnimation = "androidx.compose.animation:animation:${Versions.compose_version}"
     const val composeAndroidTest = "androidx.compose.ui:ui-test-junit4:${Versions.compose_version}"
+
+    const val junit = "junit:junit:${Versions.junit}"
+    const val core = "androidx.test:core:${Versions.androidTest}"
+    const val truth = "androidx.test.ext:truth:${Versions.androidTest}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val mockkandroid = "io.mockk:mockk-android:${Versions.mockk}"
+    const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_version}"
+
 }

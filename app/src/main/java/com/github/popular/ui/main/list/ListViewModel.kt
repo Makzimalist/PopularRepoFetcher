@@ -18,7 +18,7 @@ class ListViewModel(
     private val _viewState = MutableStateFlow<ViewState>(value = ViewState.Loading)
     val viewState: StateFlow<ViewState> = _viewState.asStateFlow()
 
-    val title = MutableStateFlow(searchTerm?.let { "$it | $sort" } ?: " ¯\\_(ツ)_/¯")
+    val title = MutableStateFlow(searchTerm?.let { "$it | $sort" } ?: " ¯\\_(ツ)_/¯").asStateFlow()
 
     init {
         viewModelScope.launch {
