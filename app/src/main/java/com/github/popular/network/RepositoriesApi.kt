@@ -2,16 +2,13 @@ package com.github.popular.network
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Query
 import java.util.*
 
 interface RepositoriesApi {
 
-    // Note: for unauthenticated requests, the rate limit allows for up to 60 requests per hour.
-    // see https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
-    // see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-//
-//    @Headers("Authorization: token TODO your token here")
+    @Headers("Authorization: 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")
     @GET("search/repositories")
     suspend fun getPopularRepos(
         @Query("q") keyWord: String,
