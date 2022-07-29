@@ -20,6 +20,9 @@ class ListViewModel(
 
     val title = MutableStateFlow(searchTerm?.let { "$it | $sort" } ?: " ¯\\_(ツ)_/¯").asStateFlow()
 
+    // should be a sorting object/enum to not map strings in the ui -.-
+    val sorting = MutableStateFlow(sort).asStateFlow()
+
     init {
         viewModelScope.launch {
             try {

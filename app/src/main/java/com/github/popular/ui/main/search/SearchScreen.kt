@@ -19,6 +19,7 @@ fun SearchScreen(
 
     val expandState = remember { mutableStateOf(false) }
 
+    // this could be a bit more splitted up into smaller composables - but time ;)
     Scaffold(
         scaffoldState = rememberScaffoldState(),
         topBar = { TopAppBar(title = { Text(text = "Search") }) },
@@ -34,7 +35,7 @@ fun SearchScreen(
                 value = text,
                 onValueChange = searchViewModel::search,
                 label = { Text("Search") },
-                placeholder = { Text(text = "Search for Repository ...") })
+                placeholder = { Text(text = "Search for Repositories ...") })
 
             Button(
                 modifier = Modifier.sizeIn(minWidth = 150.dp),
@@ -47,6 +48,7 @@ fun SearchScreen(
                     modifier = Modifier.widthIn(max = 300.dp, min = 100.dp)
                 ) {
                     searchViewModel.sortingOptions.forEach {
+                        // date is currently not working :(
                         DropdownMenuItem(onClick = {
                             searchViewModel.updateSorting(it)
                             expandState.value = false

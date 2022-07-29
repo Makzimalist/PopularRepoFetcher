@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.popular.ui.components.RepositoryListItem
+import com.github.popular.ui.components.Sorting
 
 @Composable
 fun RepositoryListScreen(
@@ -37,12 +38,17 @@ fun RepositoryListScreen(
         },
     ) {
 
-        when (val data = viewState) {
+        when (val data = viewState) { // to smart cast the data
             is ViewState.Loading -> Loading()
             is ViewState.Data -> {
                 LazyColumn(contentPadding = PaddingValues(16.dp)) {
                     items(data.repositories) { repo ->
-                        RepositoryListItem(repo)
+                        // string mapping is not the best idea, should have passed some kind of sorting object (but time is running out)
+                        val sorting = when (listViewModel.sorting.collectAsState().value) {
+                            "forks" -> Sorting.FORK
+                            else -> Sorting.STAR
+                        }
+                        RepositoryListItem(repo, sorting = sorting)
                     }
                 }
             }
@@ -64,7 +70,10 @@ fun Loading() {
 fun LoadingError(
     message: String
 ) {
-    Box(Modifier.fillMaxSize().padding(24.dp), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .padding(24.dp), contentAlignment = Alignment.Center) {
         Column {
             Text(text = "Something went terribly wrong", style = MaterialTheme.typography.h5)
             Text(text = "Please enter a valid search string, or check your internet connection.", style = MaterialTheme.typography.body1)
