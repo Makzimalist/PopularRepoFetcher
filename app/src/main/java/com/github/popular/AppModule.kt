@@ -13,4 +13,5 @@ val appModule = module {
     viewModel { params -> ListViewModel( params[0], params[1], get()) }
 
     single { GitHubRepository(get()) }
-    single { GetAllRepositoriesUseCase(get()) }}
+    single { GetAllRepositoriesUseCase(get()) }
+}

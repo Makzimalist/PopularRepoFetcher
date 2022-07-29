@@ -50,5 +50,4 @@ object Libs {
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockkandroid = "io.mockk:mockk-android:${Versions.mockk}"
     const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_version}"
-
 }

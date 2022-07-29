@@ -15,7 +15,6 @@ class SearchViewModel: ViewModel() {
     private val _sorting = MutableStateFlow(sortingOptions.first())
     val sorting = _sorting.asStateFlow()
 
-
     fun search(search: String) {
         _searchString.value = search
     }
