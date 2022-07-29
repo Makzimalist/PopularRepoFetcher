@@ -13,7 +13,7 @@ Please demonstrate error handling - e.g. handle a response with no results for g
 Please add meaningful tests.
 
 Github API doc link https://docs.github.com/en/rest/search#search-repositories
-### We expect an incomplete solution. Please spend no more than 4 hours in total on the task, we respect your time and we want to understand how you prioritise technical and non-technical requirements.
+(We expect an incomplete solution. Please spend no more than 4 hours in total on the task, we respect your time and we want to understand how you prioritise technical and non-technical requirements.)
 
 
 ## Problems and missing things
